@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  nginx:
+    build:
+      context: ./nginx/ # Corrected context path
+    container_name: nginx
+    restart: always
+    ports:
+      - "443:443"
+    depends_on:
+      - php
+  php:
+    build:
+      context: ./php/
+    container_name: php
+    depends_on:
+      - mysql
+  mysql:
+    build:
+      context: ./mysql/
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    restart: always
+    ports:
+      - "3306:3306"
+
