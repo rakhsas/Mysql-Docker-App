@@ -11,7 +11,7 @@ RUN docker-php-ext-install pdo pdo_mysql mysqli
 COPY index.php /var/www/html
 
 # Expose the port used by PHP-FPM (not needed if you're using Docker Compose)
-# EXPOSE 9000
+EXPOSE 9000
 
 # Start PHP-FPM server
 CMD ["php-fpm"]

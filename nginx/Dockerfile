@@ -1,7 +1,8 @@
 FROM nginx:latest
 
 # Copy the HTML file to the NGINX web root
-COPY index.html /var/www/html/
+# COPY index.html /var/www/html/
+# COPY index.php /var/www/html
 
 # Install OpenSSL to generate the self-signed certificate
 RUN apt-get update && apt-get install -y openssl

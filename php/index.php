@@ -10,11 +10,11 @@
 		$servername = getenv('hostName');
 		$username = getenv('userName');
 		$password = getenv('password');
-		if (!$servername || !$username || |$password)
-		{
-			echo "Failed to load Environment";
-			return;
-		}
+		// if (!$servername || !$username || |$password)
+		// {
+		// 	echo "Failed to load Environment";
+		// 	return;
+		// }
 		// Create connection
 		$conn = new mysqli($servername, $username, $password);
 		// Check connection
