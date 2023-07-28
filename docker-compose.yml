@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  php:
+    build:
+      context: ./php/
+    container_name: php
+    depends_on:
+      - mysql
+  mysql:
+    build:
+      context: ./mysql/
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test1
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+  nginx:
+    build:
+      context: ./nginx/ # Corrected context path
+    container_name: nginx
+    restart: always
+    ports:
+      - "443:443"
+    depends_on:
+      - php
