@@ -8,7 +8,7 @@ WORKDIR /var/www/html
 RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Copy your PHP application files into the container
-COPY index.php /var/www/html
+COPY ./euphoria/ /var/www/html/
 
 # Expose the port used by PHP-FPM (not needed if you're using Docker Compose)
 EXPOSE 9000
