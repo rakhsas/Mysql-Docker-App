@@ -19,10 +19,12 @@ services:
       context: ./mysql/
     container_name: mysql
     environment:
+      # MYSQL_USER: 'user'
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: euphoria
+      # MYSQL_DATABASE: euphoria
     restart: always
     ports:
       - "3306:3306"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./euphoria1.sql:/docker-entrypoint-initdb.d/euphoria1.sql
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql

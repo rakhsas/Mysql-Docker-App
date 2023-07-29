@@ -6,15 +6,7 @@
 -- Generation Time: Jun 19, 2023 at 11:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
-DROP USER 'root'@'localhost';
 
--- CREATE USER 'rakhsas'@'%' IDENTIFIED BY 'root';
-
--- -- Grant privileges to the user on a specific database
--- GRANT ALL PRIVILEGES ON test1.* TO 'rakhsas'@'%';
-
--- -- Flush privileges to apply changes
--- FLUSH PRIVILEGES;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,9 +18,15 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-
 --
 create Database `euphoria`;
+CREATE USER 'rakhsas'@'%' IDENTIFIED BY 'root';
+
+-- Grant privileges to the user on a specific database
+GRANT ALL PRIVILEGES ON euphoria.* TO 'rakhsas'@'%';
+
+-- Flush privileges to apply changes
+FLUSH PRIVILEGES;
 use `euphoria`;
 --
 
